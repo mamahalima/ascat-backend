@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "soutiens",
+  "info": {
+    "singularName": "soutien",
+    "pluralName": "soutiens",
+    "displayName": "Soutien"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Cover": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

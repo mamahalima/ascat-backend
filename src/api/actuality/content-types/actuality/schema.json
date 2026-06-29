@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "actualities",
+  "info": {
+    "singularName": "actuality",
+    "pluralName": "actualities",
+    "displayName": "Actuality"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Featured": {
+      "type": "boolean"
+    },
+    "Time": {
+      "type": "string"
+    },
+    "Localisation": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "Subtitle": {
+      "type": "string"
+    }
+  }
+}
