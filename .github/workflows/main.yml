@@ -1,0 +1,37 @@
+name: Deploy Strapi Backend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to OVH VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+
+          script: |
+            cd /var/www/ascat-backend
+
+            echo "Mise à jour du code..."
+            git pull origin main
+
+            echo "Installation des dépendances..."
+            npm ci
+
+            echo "Build Strapi..."
+            npm run build
+
+            echo "Redémarrage Strapi..."
+            pm2 restart strapi
+
+            echo "Déploiement terminé"
